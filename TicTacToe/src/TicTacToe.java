@@ -102,6 +102,22 @@ public class TicTacToe implements ActionListener{
 		}
 	}
 
+	public void clearAll(String win ){
+		JOptionPane.showMessageDialog(frame, win);
+		for(int i=0;i<9;i++) {
+			buttons[i].setBackground(Color.black);
+			buttons[i].setEnabled(true);
+			buttons[i].setText("");
+		}
+		if(random.nextInt(2)==0) {
+			player1_Turn=true;
+			textfield.setText("Player 1 Turn");
+		}
+		else {
+			textfield.setText("Player 2 Turn");
+		}
+		
+	}
 	public void firstTurn() {
 		
 		try {
@@ -195,6 +211,8 @@ public class TicTacToe implements ActionListener{
 			buttons[i].setEnabled(false);
 		}
 		textfield.setText("Player 1 Wins");
+		clearAll("Player 1 Wins");
+		
 	}
 
 	public void oWins(int a,int b,int c) {
@@ -205,6 +223,7 @@ public class TicTacToe implements ActionListener{
 			buttons[i].setEnabled(false);
 		}
 		textfield.setText("Player 2 Wins");
+		clearAll("Player 2 Wins");
 	}
 }
 
